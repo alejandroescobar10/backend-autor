@@ -3,7 +3,10 @@ import express, { Request, Response, NextFunction } from "express";
 import writerRouter from "./routes/writer.routes";
 import bookRouter from "./routes/book.routes";
 import { AppDataSource } from "./config/database";
+import cors from "cors";
 const app = express();
+app.use(cors())
+
 app.use(express.json());
 // app.get("/health", (_req: Request, res: Response, _next:NextFunction) => res.json({ ok: true }));
 app.use("/writers", writerRouter);
